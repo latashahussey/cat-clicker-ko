@@ -1,5 +1,4 @@
-//Setup View Model for those things we need to change
-var ViewModel = function() {
+var Cat = function() {
     this.clickCount = ko.observable(0);
     this.name = ko.observable('Tabby');
     this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
@@ -27,10 +26,17 @@ var ViewModel = function() {
     }, this);
 };
 
+//Setup View Model for those things we need to change
+var ViewModel = function() {
+
+    // Store current cat in variable
+    this.currentCat = ko.observable(new Cat());
+
     //Increment the counter
     this.incrementCounter = function() {
-      this.clickCount(this.clickCount() + 1);
+      this.currentCat().clickCount(this.currentCat().clickCount() + 1);
     };
+};
 
 //Apply bindings to View Model
 ko.applyBindings(new ViewModel());
