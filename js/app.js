@@ -100,6 +100,10 @@ var ViewModel = function() {
     self.incrementCounter = function() {
       self.currentCat().clickCount(self.currentCat().clickCount() + 1);
     };
+
+    this.setCat = function(clickedCat) {
+        self.currentCat(clickedCat);
+    };
 };
 
 //Apply bindings to View Model
